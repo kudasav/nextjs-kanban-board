@@ -30,7 +30,7 @@ git clone https://bla
 Install dependancies
 
 ```bash
-npm install
+yarn install
 ```
 
 #### Environment Variables:
