@@ -33,7 +33,7 @@ export async function Register(email: string, password: string, firstName: strin
    
     (await cookies()).set('token', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: false,
         sameSite: 'lax',
         maxAge: 30 * 24 * 60 * 60 // 30 days
     });
@@ -64,7 +64,7 @@ export async function Login(email: string, password: string): Promise<UserType> 
    
     (await cookies()).set('token', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: false,
         sameSite: 'lax',
         maxAge: 30 * 24 * 60 * 60 // 30 days
     });
@@ -163,7 +163,7 @@ export async function LoginSSO(code: string): Promise<ActionResult<UserType>> {
         // Set authentication cookie
         (await cookies()).set('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
+            secure: false,
             sameSite: 'lax',
             maxAge: 30 * 24 * 60 * 60 // 30 days
         });

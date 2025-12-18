@@ -1,12 +1,13 @@
 "use client";
 
-import { UserProvider } from "@/components/UserContext";
 import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
 import { PopupWrapper } from "./PopupWrapper";
 import { ConfirmationProvider } from '@/components/ConfimationModal';
+import { Suspense } from 'react';
+import Loader from './PageLoader';
 
 const queryClient = new QueryClient()
 
@@ -16,13 +17,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return <QueryClientProvider client={queryClient}>
-        <PopupWrapper>
-            <UserProvider>
-                <ConfirmationProvider>
+        <Suspense fallback={<Loader />}>
+            <ConfirmationProvider>
+                <PopupWrapper>
                     {children}
-                </ConfirmationProvider>
-            </UserProvider>
-        </PopupWrapper>
+                </PopupWrapper>
+            </ConfirmationProvider>
+        </Suspense>
     </QueryClientProvider>
 
 }

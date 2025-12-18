@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import { CardModalProvider } from "@/components/CardModal";
+import { UserProvider } from "@/components/UserContext";
 
 export const metadata: Metadata = {
 	title: "DAAily Kanban",
@@ -14,10 +15,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<div className={`max-w-[1320px] mx-auto`}>
-			<NavBar />
-			<CardModalProvider>
-				{children}
-			</CardModalProvider>
+			<UserProvider>
+				<NavBar />
+				<CardModalProvider>
+					{children}
+				</CardModalProvider>
+			</UserProvider>
 		</div>
 	);
 }

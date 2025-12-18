@@ -11,7 +11,6 @@ import { useRouter } from 'next/navigation';
 import { TriangleAlert } from "lucide-react";
 import SocialLogin from "@/components/SocialLogin";
 import { Button } from "@/components/FormElements";
-import { UserContext } from "@/components/UserContext";
 
 interface FormValues {
 	email: string;
@@ -33,11 +32,8 @@ export default function LoginPage() {
 	const searchParams = useSearchParams();
 	const next = searchParams.get("next");
 	const error = searchParams.get("error");
-
 	const [formError, setFormError] = useState<string | null>(error);
-
 	const router = useRouter();
-	const { LoadUser } = useContext(UserContext);
 
 	const Submit = async (values: FormValues, actions: FormikHelpers<FormValues>) => {
 		try {
@@ -47,7 +43,6 @@ export default function LoginPage() {
 				return setFormError(error.message || "Login failed, invalid email or password.");
 			}
 
-			await LoadUser();
 			router.push(next || "/")
 		} catch (error) {
 			setFormError("An unexpected error occurred. Please try again.");

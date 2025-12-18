@@ -70,6 +70,7 @@ export default function Board({
 			queryClient.setQueryData<TasksResult>(queryKey, previousData);
 		}
 	}
+	
 
 	async function onDragEnd(result: DropResult) {
 		const { destination, source } = result;
