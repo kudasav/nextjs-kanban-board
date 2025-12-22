@@ -4,11 +4,11 @@ A modern, full-stack kanban board application built with Next.js, TypeScript, an
 
 ### Features:
 
-* Drag-and-drop task management with ([@hello-pangea/dnd](https://github.com/hello-pangea/dnd))
+* Drag-and-drop task management with [@hello-pangea/dnd](https://github.com/hello-pangea/dnd)
 * User authentication (JWT + Google OAuth)
 * Support for multiple users
 * Support for multiple project boards
-* Real-time data persistence with ([Supabase](https://supabase.com))
+* Real-time data persistence with [Supabase](https://supabase.com)
 
 ### Getting Started
 
@@ -16,18 +16,18 @@ A modern, full-stack kanban board application built with Next.js, TypeScript, an
 
 * Node.js 20.x or higher
 * npm or yarn package manager
-* A Supabase account ([sign up here](https://supabase.com))
-* Supabase CLI ([installation guide](https://supabase.com/docs/guides/cli))
+* A Supabase account [sign up here](https://supabase.com)
+* Supabase CLI [installation guide](https://supabase.com/docs/guides/cli)
 
 #### Project setup:
 
-Clone the repo
+Clone the repo:
 
 ```bash
-git clone https://bla
+git clone https://github.com/kudasav/nextjs-kaanban-board.git
 ```
 
-Install dependancies
+Install dependancies:
 
 ```bash
 yarn install
@@ -53,17 +53,17 @@ Create a `.env.local` file in the root directory with the following variables:
 Link your supabase project:
 
 ```bash
-supabase login
+npx supabase login
 ```
 
 ```bash
-supabase link
+npx supabase link
 ```
 
 Run supabase migrations to create the required tables from the app's schema:
 
 ```bash
-supabase db push
+npx supabase db push
 ```
 
 
