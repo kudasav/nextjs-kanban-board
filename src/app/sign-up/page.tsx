@@ -107,7 +107,7 @@ export default function LoginPage() {
 									Email
 								</label>
 								<Field
-									type="tel"
+									type="email"
 									id="email"
 									name="email"
 									placeholder="email@example.com"
